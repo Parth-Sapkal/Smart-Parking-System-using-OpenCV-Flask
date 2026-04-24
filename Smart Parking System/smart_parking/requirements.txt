@@ -1,0 +1,11 @@
+# Smart Parking System - Requirements
+# Python 3.10+
+
+# Web Framework
+Flask>=2.3.0
+
+# Computer Vision
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# Note: pickle5 is not needed for Python 3.9+ (built-in pickle module)

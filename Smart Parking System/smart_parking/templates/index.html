@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🅿️</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🅿️</div>
+                <h1>Smart Parking System</h1>
+            </div>
+            <div id="statusBadge" class="status-badge available">
+                <span class="status-dot"></span>
+                <span>Loading...</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Alert Banner -->
+        <div id="alertBanner" class="alert-banner available">
+            <span style="font-size: 1.5rem;">✓</span>
+            <span>Loading parking status...</span>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="stats-container">
+            <div class="stat-card total">
+                <div class="stat-label">Total Slots</div>
+                <div id="totalSlots" class="stat-value">--</div>
+            </div>
+            <div class="stat-card empty">
+                <div class="stat-label">Available</div>
+                <div id="emptySlots" class="stat-value">--</div>
+            </div>
+            <div class="stat-card occupied">
+                <div class="stat-label">Occupied</div>
+                <div id="occupiedSlots" class="stat-value">--</div>
+            </div>
+        </div>
+
+        <!-- Video and Slots Section -->
+        <div class="video-section">
+            <!-- Video Container -->
+            <div class="video-container">
+                <div class="video-header">
+                    <div class="video-title">
+                        📹 Live Parking Feed
+                    </div>
+                    <div id="liveIndicator" class="live-indicator">
+                        <span class="live-dot"></span>
+                        LIVE
+                    </div>
+                </div>
+                <div class="video-wrapper">
+                    <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Live Parking Video Feed">
+                </div>
+            </div>
+
+            <!-- Slots Panel -->
+            <div class="slots-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">🚗 Parking Slots</h2>
+                </div>
+                <div id="slotsList" class="slots-list">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color empty"></div>
+                        <span>Empty</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color occupied"></div>
+                        <span>Occupied</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Smart Parking System &copy; 2024 | Powered by OpenCV & Flask</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
